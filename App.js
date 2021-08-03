@@ -1,9 +1,7 @@
 import React from 'react';
-import {StatusBar, Text, View, Image} from 'react-native';
+import {Text} from 'react-native';
 import {ThemeProvider} from 'styled-components';
-import {RestaurantScreen} from './src/features/restaurants/screens/restautant.screens';
 import {theme} from './src/infastructure/theme';
-import {NavigationContainer} from '@react-navigation/native';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import {SafeArea} from './src/features/restaurants/components/utilites/safe-components.area';
 import Ionicons from 'react-native-vector-icons/Ionicons';
@@ -11,6 +9,11 @@ import {RestaurantsContextProvider} from './src/services/restaurants/restaurants
 import {LocationContextProvider} from './src/services/location/location.context';
 import {Navigation} from './src/infastructure/navigation';
 import {FavouritesContextProvider} from './src/services/favourites/favourite.context';
+import {
+  AuthenticationContext,
+  AuthenticationContextProvide,
+  AuthenticationContextProvider,
+} from './src/services/authentication/authentication.context';
 
 const MapScreen = () => (
   <SafeArea>
@@ -43,13 +46,15 @@ const Tab = createBottomTabNavigator();
 export default function App() {
   return (
     <ThemeProvider theme={theme}>
-      <FavouritesContextProvider>
-        <LocationContextProvider>
-          <RestaurantsContextProvider>
-            <Navigation />
-          </RestaurantsContextProvider>
-        </LocationContextProvider>
-      </FavouritesContextProvider>
+      <AuthenticationContextProvider>
+        <FavouritesContextProvider>
+          <LocationContextProvider>
+            <RestaurantsContextProvider>
+              <Navigation />
+            </RestaurantsContextProvider>
+          </LocationContextProvider>
+        </FavouritesContextProvider>
+      </AuthenticationContextProvider>
     </ThemeProvider>
   );
 }

@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "313824605212",
+    "project_id": "mealstogoreact",
+    "storage_bucket": "mealstogoreact.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:313824605212:android:06b1cb569abdf4cb5adbd9",
+        "android_client_info": {
+          "package_name": "com.foodapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "313824605212-ni64cu37cip5il7d9vigtc6o7comqm52.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.foodapp",
+            "certificate_hash": "04663fa3135e389b10f18807f4e41255a0d886be"
+          }
+        },
+        {
+          "client_id": "313824605212-97adi0aqai2p588offus75ne4ut0m9kh.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBKFMG7siHgCwDLG9T0byJ0ywQuoz59TL0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "313824605212-97adi0aqai2p588offus75ne4ut0m9kh.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

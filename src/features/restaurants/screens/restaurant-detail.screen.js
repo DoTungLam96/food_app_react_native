@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 import React, {useState}  from 'react'
 import { RestaurantInfoCard } from '../components/restaurant-info-card.components'
 import {SafeArea} from '../components/utilites/safe-components.area'

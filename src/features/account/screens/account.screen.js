@@ -20,7 +20,7 @@ export const AccountScreen = ({navigation}) => {
           Login
         </AuthButton>
         <Spacer size="large" />
-        <AuthButton icon="lock-open-outline" mode="contained">
+        <AuthButton icon="email" mode="contained">
           Register
         </AuthButton>
       </AccountContainer>

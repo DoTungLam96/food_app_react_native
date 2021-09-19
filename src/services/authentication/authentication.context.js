@@ -11,15 +11,19 @@ export const AuthenticationContextProvider = ({children}) => {
   const [error, setError] = useState(null);
 
   const onLogin = (email, password) => {
+    if (email === '' || password === '') {
+      setError('Email or password do not empty');
+      return;
+    }
     setLoading(true);
-    loginRequest(email, password)
+    auth()
+      .signInWithEmailAndPassword(email, password)
+      .catch(err => {
+        setError(`${err}`);
+      })
       .then(data => {
         console.log(data);
         setUser(data);
-      })
-      .catch(err => {
-        console.log('AuthenticationContextProvide error: ', err);
-        setError(err);
       })
       .finally(() => setLoading(false));
   };

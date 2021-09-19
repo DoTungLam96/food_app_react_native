@@ -1,4 +1,4 @@
-import React, {useState, useContext} from 'react';
+import React, {useState, useContext, useEffect} from 'react';
 import {ActivityIndicator, Colors} from 'react-native-paper';
 
 import {
@@ -13,11 +13,23 @@ import {
 import {Text} from '../../../components/typography/text.component';
 import {Spacer} from '../../../components/spacer/spacer.component';
 import {AuthenticationContext} from '../../../services/authentication/authentication.context';
+import {useNavigation} from '@react-navigation/native';
 
-export const LoginScreen = ({navigation}) => {
+export const LoginScreen = ({navigation, route}) => {
+  const navigatedScreen = useNavigation();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const {onLogin, error, isLoading} = useContext(AuthenticationContext);
+
+  const {onLogin, error, isLoading, setError} = useContext(
+    AuthenticationContext,
+  );
+
+  useEffect(() => {
+    if (route.params !== undefined) {
+      setEmail(route.params.email);
+      setPassword(route.params.password);
+    }
+  }, [route.params]);
   return (
     <AccountBackground>
       <AccountCover />
@@ -51,7 +63,7 @@ export const LoginScreen = ({navigation}) => {
             <AuthButton
               icon="lock-open-outline"
               mode="contained"
-              onPress={() => onLogin(email, password)}>
+              onPress={() => onLogin(email, password, navigatedScreen)}>
               Login
             </AuthButton>
           ) : (
@@ -60,7 +72,12 @@ export const LoginScreen = ({navigation}) => {
         </Spacer>
       </AccountContainer>
       <Spacer size="large">
-        <AuthButton mode="contained" onPress={() => navigation.goBack()}>
+        <AuthButton
+          mode="contained"
+          onPress={() => {
+            setError(null);
+            navigation.navigate('AccountScreen');
+          }}>
           Back
         </AuthButton>
       </Spacer>

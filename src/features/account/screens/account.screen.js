@@ -6,12 +6,14 @@ import {
   AccountContainer,
   AccountCover,
   AuthButton,
+  Title,
 } from '../components/account.style';
 import {Spacer} from '../../restaurants/components/spacer/spacer.component';
 export const AccountScreen = ({navigation}) => {
   return (
     <AccountBackground>
       <AccountCover />
+      <Title>Meals To Go</Title>
       <AccountContainer>
         <AuthButton
           onPress={() => navigation.navigate('Login')}
@@ -20,7 +22,10 @@ export const AccountScreen = ({navigation}) => {
           Login
         </AuthButton>
         <Spacer size="large" />
-        <AuthButton icon="email" mode="contained">
+        <AuthButton
+          onPress={() => navigation.navigate('RegisterScreen')}
+          icon="email"
+          mode="contained">
           Register
         </AuthButton>
       </AccountContainer>

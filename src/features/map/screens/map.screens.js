@@ -25,7 +25,6 @@ export const MapScreen = ({navigation}) => {
     const southwestLat = viewport.southwest.lat;
 
     const latDeltas = northeastLat - southwestLat;
-    console.log(latDeltas);
     setLatDelta(latDeltas);
   }, [locations, viewport]);
 

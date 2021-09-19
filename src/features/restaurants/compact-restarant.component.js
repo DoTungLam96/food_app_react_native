@@ -1,9 +1,9 @@
-import React from "react";
-import styled from "styled-components/native";
-import {WebView} from "react-native-webview";
-import { Platform, Image,Text } from "react-native";
+import React from 'react';
+import styled from 'styled-components/native';
+import {WebView} from 'react-native-webview';
+import {Platform, Image, Text} from 'react-native';
 
-import { TextTypoGraph } from "./components/typograph/text.component";
+import {TextTypoGraph} from './components/typograph/text.component';
 
 const CompactImage = styled(Image)`
   border-radius: 10px;
@@ -23,15 +23,14 @@ const Item = styled.View`
   align-items: center;
 `;
 
-const isAndroid = Platform.OS === "android";
+const isAndroid = Platform.OS === 'android';
 
-export const CompactRestaurantInfo = ({ restaurant, isMapView }) => {
-  console.log(isMapView)
-  const Image = (isMapView && isAndroid) ? CompactWebview  : CompactImage
+export const CompactRestaurantInfo = ({restaurant, isMapView}) => {
+  const Image = isMapView && isAndroid ? CompactWebview : CompactImage;
   return (
     <Item>
-    <Image source={{ uri: restaurant.photos[0] }} />
-      
+      <Image source={{uri: restaurant.photos[0]}} />
+
       <TextTypoGraph center variant="caption" numberOfLines={3}>
         {restaurant.name}
       </TextTypoGraph>
